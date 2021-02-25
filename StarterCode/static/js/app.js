@@ -37,15 +37,15 @@ function showGraphs() {
 
         Plotly.newPlot('bar', barData);
      
-        //var bubbleData = [
+        //Bubble Chart
         
             var bubbleData = {
-                x: otu_ids.slice(0, 10).reverse().map(otuID => 'OTU ' + otuID),
-                y: sample_values.slice(0, 10).reverse(),
-                text: otu_labels.slice(0, 10).reverse(),
+                x: otu_ids,
+                y: sample_values,
+                text: otu_labels,
                 mode: "markers", 
                 marker: {
-                    size: [sample_values.slice(0, 10).reverse()]
+                    size: sample_values
                 }
             };
 
@@ -53,12 +53,23 @@ function showGraphs() {
             console.log(bubbleData)
             var layout = { 
                 title: 'Bacterial Bubble Size',
-                showlegend: false, 
+                showlegend: false,
+                xaxis: {title: 'OTU ID'},
                 height: 600,
-                width: 600
+                width: 1000
             };
         
             Plotly.newPlot('bubble', data, layout);})}
    
 
 // app.js:29 {id: "940", otu_ids: Array(80), sample_values: Array(80), otu_labels: Array(80)}
+
+// var bubbleData = {
+//     x: otu_ids.slice(0, 10).reverse().map(otuID => 'OTU ' + otuID),
+//     y: sample_values.slice(0, 10).reverse(),
+//     text: otu_labels.slice(0, 10).reverse(),
+//     mode: "markers", 
+//     marker: {
+//         size: [sample_values.slice(0, 10).reverse()]
+//     }
+// };
